@@ -2075,7 +2075,6 @@ function flush_ui(){
         }
         view.className += 'bofsym_'+current_pool[i]
     }
-    document.getElementById('output_textbox').value = current_output
 
     document.getElementById("search_results").innerHTML = "";
     current_ids.forEach(id => {
