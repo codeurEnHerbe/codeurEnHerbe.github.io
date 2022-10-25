@@ -726,6 +726,7 @@ body {
     background-size: 150px;
     background-repeat: repeat;
     color: white;
+    zoom: 225%;
 }
 
 .selectors_titles {
@@ -742,15 +743,18 @@ body {
 
 .selector2 {
     width: 39%;
+    height: 100%;
     flex-wrap: wrap;
     display: flex;
     line-height: 1px;
+    justify-content: flex-end;
 }
 
 .image_pickup_wrapper {
     overflow: hidden;
     position: relative;
-    width: 31px;
+    width: 33px;
+    height: 33px;
     margin: 1px;
 }
 
@@ -764,11 +768,26 @@ body {
 }
 
 .plus_minus_pickup {
-    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    width: 84%;
+    position: absolute;
+    top: 1px;
     font-size: 7px;
     margin-top: 2px;
+    margin-left: 2px;
 }
 
+.plus_minus_pickup span:last-child {
+    margin-left: auto;
+    line-height: 3px;
+}
+
+.pickup_plus {
+    line-height: 2px;
+    margin-left: 2px;
+}
 
 .unselected_bofsym {
     opacity: 15%;
@@ -776,6 +795,21 @@ body {
 
 .selected_bofsym {
     opacity: 100%;
+}
+
+#search_results {
+    height: 33%;
+    overflow-y: scroll;
+}
+
+#search_results::-webkit-scrollbar {
+    display: none;
+  }
+  
+/* Hide scrollbar for IE, Edge and Firefox */
+#search_results {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 .receipes_container {

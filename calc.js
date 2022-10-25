@@ -2089,7 +2089,7 @@ function flush_ui(){
         newElement.setAttribute('id', id)
         newElement.setAttribute('class', 'collectible collectibles_'+idstr)
         newElement.setAttribute('onclick', 'show_recipies(this.id)')
-        document.body.appendChild(newElement)
+        document.getElementById("search_results").appendChild(newElement)
     });
 }
 
@@ -2201,16 +2201,21 @@ function select_pickup(id) {
 
 function remove_pickup(id) {
     var index = selected_pickups.indexOf(id);
+    var img = document.getElementById('add_btn_pickup_'+id);
+
     if (index !== -1) {
         selected_pickups.splice(index, 1);
 
-        var img = document.getElementById('add_btn_pickup_'+id);
         var numberHTML = img.parentElement.getElementsByClassName("plus_minus_pickup")[0].getElementsByTagName("span")[2].innerHTML;
         var number = parseInt(numberHTML);
         number -= 1;
         img.parentElement.getElementsByClassName("plus_minus_pickup")[0].getElementsByTagName("span")[2].innerHTML = number + "";
         
         console.log(selected_pickups);
+    }
+
+    if (!selected_pickups.includes(id)) {
+        img.setAttribute('class', 'bofsym bofsym_' + id + ' unselected_bofsym');
     }
 }
 
@@ -2258,9 +2263,9 @@ for(let i=1;i<30;i++){
 for(let i=1;i<30;i++){
     var img = document.getElementById('add_btn_pickup_'+i);
 
-    img.parentElement.getElementsByClassName("plus_minus_pickup")[0].getElementsByTagName("span")[0].setAttribute('onclick', "select_pickup(" + i + ")");
+    img.parentElement.getElementsByClassName("plus_minus_pickup")[0].getElementsByTagName("span")[0].setAttribute('onclick', "remove_pickup(" + i + ")");
 
-    img.parentElement.getElementsByClassName("plus_minus_pickup")[0].getElementsByTagName("span")[1].setAttribute('onclick', "remove_pickup(" + i + ")");
+    img.parentElement.getElementsByClassName("plus_minus_pickup")[0].getElementsByTagName("span")[1].setAttribute('onclick', "select_pickup(" + i + ")");
 
 }
 
