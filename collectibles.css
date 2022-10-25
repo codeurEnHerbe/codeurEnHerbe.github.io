@@ -882,6 +882,13 @@ body {
     justify-content: flex-end;
 }
 
+.top_recipes span {
+    flex: 0 1 auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .recipes_list {
     padding: 5px;
     display: flex;
